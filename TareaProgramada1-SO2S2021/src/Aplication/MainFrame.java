@@ -524,17 +524,21 @@ public class MainFrame extends javax.swing.JFrame {
                 @Override
                 public void run() {
                     int lineAct = (20+lines) -counter[0];
+                    String lineaActString = String.valueOf(lineAct+1);
                     tblMemory.setRowSelectionInterval(lineAct, lineAct);
                     String linea = tblMemory.getValueAt(lineAct, 1).toString();
                     //System.out.println("linea :"+linea);
+                    tfPC.setText(lineaActString);
                     executeLine(linea);
                     //System.out.println("termine linea :"+counter[0]);
                     counter[0]--;
                     if (counter[0] == 0) {
+                        
                         tt.cancel();
+                        
                     }
                 }
-            }, 0,2000);
+            }, 1500,2500);
 
             
             
@@ -589,8 +593,10 @@ public class MainFrame extends javax.swing.JFrame {
             }
             if(token.equals("MOV")){
                 movFlag = true;
+                tfIR.setText(getTokenCode(token));
             }
             if(token.equals("SUB")){
+                tfIR.setText(getTokenCode(token));
                 token = strToken.nextToken();
                 Long ac = Long.valueOf(tfAC.getText());
                 if(token.contains("AX")){
@@ -619,6 +625,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
             if(token.equals("ADD")){
+                tfIR.setText(getTokenCode(token));
                 token = strToken.nextToken();
                 Long ac = Long.valueOf(tfAC.getText());
                 if(token.contains("AX")){
@@ -647,6 +654,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
             if(token.equals("STORE")){
+                tfIR.setText(getTokenCode(token));
                 token = strToken.nextToken();
                 if(token.contains("AX")){
                     tfAX.setText(tfAC.getText());
@@ -662,6 +670,7 @@ public class MainFrame extends javax.swing.JFrame {
                 }
             }
             if(token.equals("LOAD")){
+                tfIR.setText(getTokenCode(token));
                 token = strToken.nextToken();
                 if(token.contains("AX")){
                     tfAC.setText(tfAX.getText());
