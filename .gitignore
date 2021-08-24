@@ -21,3 +21,6 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+/TareaProgramada1-SO2S2021/nbproject/private/
+/TareaProgramada1-SO2S2021/build/
+/JavaApplication8/nbproject/private/
